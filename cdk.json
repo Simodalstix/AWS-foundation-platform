@@ -1,5 +1,5 @@
 {
-  "app": "python3 app.py",
+  "app": "python app.py",
   "watch": {
     "include": [
       "**"
@@ -10,13 +10,16 @@
       "requirements*.txt",
       "source.bat",
       "**/__pycache__",
-      "**/.venv"
+      "**/*.pyc"
     ]
   },
   "context": {
     "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
     "@aws-cdk/core:checkSecretUsage": true,
-    "@aws-cdk/core:target-partitions": ["aws", "aws-cn"],
+    "@aws-cdk/core:target-partitions": [
+      "aws",
+      "aws-cn"
+    ],
     "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
     "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": true,
     "@aws-cdk/aws-ecs:arnFormatIncludesClusterName": true,
@@ -49,9 +52,10 @@
     "@aws-cdk/aws-efs:denyAnonymousAccess": true,
     "@aws-cdk/aws-opensearchservice:enableLogging": true,
     "@aws-cdk/aws-normlizedkeys:props": true,
-    "@aws-cdk/aws-kms:reduceCrossAccountRegionPolicyScope": true,
-    "@aws-cdk/aws-opensearchservice:enforceHttps": true,
-    "@aws-cdk/aws-s3:eventBridgeNotificationToSameEnvironment": true,
-    "@aws-cdk/core:stackRelativeExports": true
+    "@aws-cdk/aws-lambda-go:bundlingInDockerContainer": false,
+    "@aws-cdk/aws-rds:auroraClusterChangeScopeOfInstanceParameterGroupWithEachParameters": true,
+    "@aws-cdk/aws-appsync:useArnForSourceApiAssociationIdentifier": true,
+    "@aws-cdk/aws-rds:preventRenderingDeprecatedCredentials": true,
+    "@aws-cdk/aws-codepipeline-actions:useNewDefaultBranchForSourceAction": true
   }
 }
